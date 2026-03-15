@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ic_launcher_background">#222222</color>
+    <color name="brand_primary">#4CAF50</color>
+    <color name="brand_on_primary">#FFFFFF</color>
+    
+    <!-- 任务格子颜色 -->
+    <color name="cell_normal_background">#FFFFFF</color>  <!-- 白底 -->
+    <color name="cell_border_color">#000000</color>     <!-- 黑线 -->
+    <color name="cell_uncompleted_background">#FFFFE0</color>  <!-- 亮黄色 - 未完成状态 -->
+    <color name="cell_uncompleted_text">#FF0000</color>        <!-- 红字 - 未完成状态 -->
+    <color name="cell_completed_background">#006400</color>   <!-- 深绿色 - 已完成状态 -->
+    <color name="progress_track_color">#DDDDDD</color>         <!-- 进度轨道颜色 -->
+    <color name="progress_thumb_color">#AAAAAA</color>         <!-- 进度滑块颜色 -->
+</resources>
