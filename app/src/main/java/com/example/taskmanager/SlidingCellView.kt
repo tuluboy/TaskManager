@@ -67,7 +67,7 @@ class TaskCellView @JvmOverloads constructor(
     private var touchDownTime = 0L
     
     init {
-        // 设置长按时间为2秒
+        // 设置长按时间为1秒
         setOnLongClickListener {
             // 长按时不需要特殊处理，只需允许后续移动事件更新进度
             true
@@ -84,12 +84,12 @@ class TaskCellView @JvmOverloads constructor(
             when (ev.action) {
                 MotionEvent.ACTION_DOWN -> {
                     touchDownTime = System.currentTimeMillis()
-                    // 启动长按检测计时器（2秒）
+                    // 启动长按检测计时器（1秒）
                     longPressHandler = android.os.Handler(android.os.Looper.getMainLooper())
                     val runnable = object : Runnable {
                         override fun run() {
-                            // 2秒后进入长按状态
-                            if (System.currentTimeMillis() - touchDownTime >= 2000) { // 确认确实过了2秒
+                            // 1秒后进入长按状态
+                            if (System.currentTimeMillis() - touchDownTime >= 1000) { // 确认确实过了1秒
                                 isLongPressed = true
                                 showVerticalLine = true
                                 verticalLineX = ev.x
@@ -100,7 +100,7 @@ class TaskCellView @JvmOverloads constructor(
                             }
                         }
                     }
-                    longPressHandler?.postDelayed(runnable, 2000) // 2秒长按
+                    longPressHandler?.postDelayed(runnable, 1000) // 1秒长按
                     
                     return true // 必须消费DOWN事件以接收后续的UP/MOVE事件
                 }
@@ -130,8 +130,8 @@ class TaskCellView @JvmOverloads constructor(
                         return true
                     } else {
                         // 如果不是长按状态，而是短时间内的点击，则让父级处理点击事件
-                        // 检查是否是快速点击（小于2秒）
-                        if (System.currentTimeMillis() - touchDownTime < 2000) {
+                        // 检查是否是快速点击（小于1秒）
+                        if (System.currentTimeMillis() - touchDownTime < 1000) {
                             // 这是一个短点击，应该触发onClick事件
                             performClick() // 触发click listener
                         }
